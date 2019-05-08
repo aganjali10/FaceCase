@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block headblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 align=center style="font-family:Times New Roman">JUST UPLOAD THE VIDEO AND ADD THE EXACT LOCATION TOO.</h1>
+    <br>
+    <h1>Video Uploader</h1><p>
+    <form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Upload"/>
+    </form>
+  </div>
+{% endblock %}

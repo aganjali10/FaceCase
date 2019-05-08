@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block headblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 align=center style="font-family:Times New Roman">UPLOAD THE PHOTO AND OTHER DETAILS MENTIONED IN THE MISSING REPORT</h1>
+    <br>
+    <!-- <form method="POST" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="Yaayy Submit" class="btn btn-default">
+    </form> -->
+    <form method="post" class="form" align=center enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Missing person's full name</label>
+		<br>
+		{{ form.name }}
+		<br>
+    <br>
+    <label>Missing person's age</label>
+		<br>
+		{{ form.age }}
+		<br>
+    <br>
+    <label>Local Guardian's contact details</label>
+		<br>
+		{{ form.contact }}
+		<br>
+    <br>
+		<label>Upload the photo you have clicked</label>
+		<br>
+		<label align="center" style="padding-left:80px;">{{ form.child_pic }}</label>
+		<br>
+		<br>
+    <button class="btn btn-outline-primary" type="submit" align="center">Find the missing person!</button>
+  </form>
+</div>
+{% endblock %}
